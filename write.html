@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>글작성</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+</head>
+<body>
+
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+        <caption>게시글 작성</caption>
+        </thead>
+        <tbody>
+        <form action='write.php' method="post" onsubmit="return titlecheck()">
+            <tr>
+                <th>제목</th>
+                <td><input type="text" name="title" id="titles" placeholder="제목을 입력하세요" class="form-control"></td>
+            </tr>
+            <tr>
+                <th>내용</th>
+                <td><textarea name="content" id="contents" cols="10" class="form-control"
+                              placeholder="내용을 입력하세요"></textarea></td>
+            </tr>
+            <br>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" value="작성" class="btn btn-default pull-right">
+                    <input type="button" value="취소" class="btn btn-default pull-right" onclick="cancel()">
+                </td>
+            </tr>
+
+        </form>
+        </tbody>
+    </table>
+</div>
+<script>
+    // 제목에 아무런 값이 없을 경우에 경고창 출력
+    function titlecheck() {
+        var title = document.getElementById("titles");
+
+        if (title.value == '') {
+            alert("제목을 입력하세요");
+
+            return false;
+        }
+        return true;
+    }
+    // 취소를 누르면 목록으로 넘어간
+    // 다
+    function cancel() {
+        location.replace('http://localhost:8080/page/list.php')
+    }
+
+</script>
+</body>
+</html>
